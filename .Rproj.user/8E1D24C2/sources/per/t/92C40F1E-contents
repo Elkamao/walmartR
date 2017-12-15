@@ -1,0 +1,116 @@
+---
+title: "Elka_G5072 Homework 2"
+author: Elka Mao
+date: 2017-09-25
+always_allow_html: yes
+output: 
+  html_document:
+    keep_md: true
+---
+
+Data Wrangling
+============================
+
+The objective of this assignment is to wrangle a data set, produce some summary statistics, and visualize the correlation between binge drinking prevalence and poverty in U.S. States. 
+
+## Data
+
+The data we want to use are the [U.S. Chronic Disease Indicators (CDI)](https://catalog.data.gov/dataset/u-s-chronic-disease-indicators-cdi-e50c9). Download the data in .xls format.
+```{r}
+library("tidyverse")
+cdi <- read.csv(url("https://chronicdata.cdc.gov/api/views/g4ie-h725/rows.csv"))
+```
+
+
+
+## Selection of Data and Tidying
+```{r}
+library(tidyr)
+library(plyr)
+
+cdi_binge <- cdi %>% 
+  filter(Question == "Binge drinking prevalence among adults aged >= 18 years") %>%
+  filter(StratificationCategory1 == "Gender" | StratificationCategory1 == "Overall") %>%
+  filter(DataValueUnit == "%") %>%
+  filter(DataValueType == "Crude Prevalence")
+
+cdi_poverty <- cdi %>%
+  filter(Question == "Poverty") %>%
+  filter(DataValueUnit == "%") %>%
+  filter(DataValueType == "Crude Prevalence")
+
+
+# year -- Check if year start is the same as year end for all selected rows
+sum(cdi_binge$YearEnd - cdi_binge$YearStart) # Yes
+sum(cdi_poverty$YearEnd - cdi_poverty$YearStart) # Yes
+
+cdi_binge_clean <- cdi_binge %>%
+  select(year = YearStart, state = LocationDesc, stateabb = LocationAbbr,  
+         DataValue, Question, Stratification1) %>%
+  spread(key = Question, value = DataValue) %>%
+  rename(c("Binge drinking prevalence among adults aged >= 18 years" = "datavalue")) %>%
+  spread(key = Stratification1, value = datavalue) %>%
+  rename(c("Female" = "binge_female", "Male" = "binge_male", "Overall" = "binge_all"))
+
+cdi_poverty_clean <- cdi_poverty %>%
+  select(year = YearStart, state = LocationDesc, stateabb = LocationAbbr,  
+         DataValue, Question) %>%
+  spread(key = Question, value = DataValue) %>%
+  rename(c("Poverty" = "poverty"))
+
+binge_clean <- left_join(cdi_poverty_clean, cdi_binge_clean, 
+                         by = c("year" = "year", "state" = "state", "stateabb" = "stateabb"))
+  
+write.csv(binge_clean, "binge_clean.csv")
+```
+
+
+## Data Transformation and Summary Results
+
+### Table
+```{r}
+table(cdi_binge_clean$year)
+
+binge_se <- cdi_binge_clean %>% 
+  filter(year==2015) %>%
+  arrange(desc(binge_all))
+binge_top10_2015 <- binge_se[1:10, ]  
+binge_top10_2015
+
+```
+
+### Plot
+```{r}
+library(ggplot2)
+library(ggthemes)
+
+binge_clean_num <- read.csv("binge_clean.csv")
+
+ggplot(binge_clean_num, aes(y = poverty, x = binge_all)) + geom_point() + geom_smooth() +
+  theme_bw() +
+  xlab("Overall Binge Drinking Percentage") + ylab("Poverty Percentage") + 
+  ggtitle("Correlation Between Overall Prevalence of Poverty and Binge Drinking in 2012") +
+  theme(plot.title = element_text(size = 12.5, face = "bold"))+
+  geom_text(aes(label = stateabb), size = 3.5, color = "#63328c", hjust = 0.6, vjust = -0.6)
+```
+
+### Calculate Growth Rate
+```{r}
+detach(package:plyr)
+write.csv(cdi_binge_clean, "cdi_binge_clean.csv")
+cdi_binge_clean_num <- read.csv("cdi_binge_clean.csv")
+
+growth <- cdi_binge_clean_num %>% 
+  group_by(state) %>%
+  summarize(a = first(binge_all), b = last(binge_all)) %>%
+  mutate(avg.annual.growth = (b-a)/5) %>%
+  select(state, avg.annual.growth)
+
+top5 <- growth %>% arrange(desc(avg.annual.growth))
+cat("Top 5 States of Average Annual Growth Rate for Binge Drinking")
+top5[1:5,]
+bottom5 <- growth %>% arrange(order(avg.annual.growth))
+cat("Bottom 5 States of Average Annual Growth Rate for Binge Drinking")
+bottom5[1:5,]
+```
+

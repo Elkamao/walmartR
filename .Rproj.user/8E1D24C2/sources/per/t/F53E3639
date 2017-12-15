@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1513214673850.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1911983743",
+    "id" : "F53E3639",
+    "lastKnownWriteTime" : 1513215065,
+    "last_content_update" : 1513215065756,
+    "path" : "~/Desktop/MD/walmartR/R/product_recommendation.R",
+    "project_path" : "R/product_recommendation.R",
+    "properties" : {
+        "cursorPosition" : "16,15",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

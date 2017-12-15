@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1513214680775.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2728290396",
+    "id" : "B5BAC3ED",
+    "lastKnownWriteTime" : 1513215081,
+    "last_content_update" : 1513215081957,
+    "path" : "~/Desktop/MD/walmartR/R/trending.R",
+    "project_path" : "R/trending.R",
+    "properties" : {
+        "cursorPosition" : "15,15",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

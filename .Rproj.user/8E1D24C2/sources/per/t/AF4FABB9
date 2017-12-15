@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1513216682698.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "676700121",
+    "id" : "AF4FABB9",
+    "lastKnownWriteTime" : 1513217501,
+    "last_content_update" : 1513217501364,
+    "path" : "~/Desktop/MD/vignettes/Using walmartR.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "1,18",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 11,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

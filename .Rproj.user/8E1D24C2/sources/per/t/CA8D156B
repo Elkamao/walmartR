@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1513214678765.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3857846214",
+    "id" : "CA8D156B",
+    "lastKnownWriteTime" : 1513215078,
+    "last_content_update" : 1513215078251,
+    "path" : "~/Desktop/MD/walmartR/R/taxonomy .R",
+    "project_path" : "R/taxonomy .R",
+    "properties" : {
+        "cursorPosition" : "15,15",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

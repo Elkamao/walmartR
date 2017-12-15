@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1513214396357.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4182024248",
+    "id" : "DD901E54",
+    "lastKnownWriteTime" : 1513215067,
+    "last_content_update" : 1513215067786,
+    "path" : "~/Desktop/MD/walmartR/R/postbrowse_recommendation.R",
+    "project_path" : "R/postbrowse_recommendation.R",
+    "properties" : {
+        "cursorPosition" : "15,3",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

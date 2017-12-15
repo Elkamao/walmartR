@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1513214670287.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "784990020",
+    "id" : "95608080",
+    "lastKnownWriteTime" : 1513215066,
+    "last_content_update" : 1513215066916,
+    "path" : "~/Desktop/MD/walmartR/R/product_lookup.R",
+    "project_path" : "R/product_lookup.R",
+    "properties" : {
+        "cursorPosition" : "13,31",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
