@@ -18,7 +18,8 @@
 #' @references https://developer.walmartlabs.com/docs/read/Search_API
 #'
 #' @examples
-#' item_search("apikey", query = "tv", facet = "on", facet_filter = "brand:Samsung")
+#' apikey = "xs9emg846j69q7e9fhbfxz6d"
+#' item_search(apikey, query = "tv", facet = "on", facet_filter = "brand:Samsung")
 #'
 #' @export
 #' @import jsonlite

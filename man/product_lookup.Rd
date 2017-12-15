@@ -18,8 +18,9 @@ Returns an RDS file named "product_lookup_output.RDS".
 This function gives access to item price and availability in real-time. Item id needs to be specified for doing a lookup.
 }
 \examples{
-product_lookup("xs9emg846j69q7e9fhbfxz6d", "12417832")
-product_lookup("xs9emg846j69q7e9fhbfxz6d", "12417832,19336123")
+apikey = "xs9emg846j69q7e9fhbfxz6d"
+product_lookup(apikey, "12417832")
+product_lookup(apikey, "12417832,19336123")
 
 }
 \references{

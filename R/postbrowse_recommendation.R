@@ -10,7 +10,8 @@
 #' @references https://developer.walmartlabs.com/docs/read/Post_Browsed_Products_API
 #'
 #' @examples
-#' postbrowse_recommendation("apikey", "36904791")
+#' apikey = "xs9emg846j69q7e9fhbfxz6d"
+#' postbrowse_recommendation(apikey, "36904791")
 #'
 #' @export
 #' @import jsonlite

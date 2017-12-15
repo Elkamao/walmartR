@@ -16,7 +16,8 @@ Returns an RDS file named "taxonomy_output.RDS".
 This function exposes the category taxonomy used by walmart.com to categorize items.
 }
 \examples{
-taxonomy("xs9emg846j69q7e9fhbfxz6d")
+apikey = "xs9emg846j69q7e9fhbfxz6d"
+taxonomy(apikey)
 
 }
 \references{

@@ -9,7 +9,8 @@
 #' @references https://developer.walmartlabs.com/docs/read/Trending_API
 #'
 #' @examples
-#' trending("xs9emg846j69q7e9fhbfxz6d")
+#' apikey = "xs9emg846j69q7e9fhbfxz6d"
+#' trending(apikey)
 #'
 #' @export
 #' @import jsonlite

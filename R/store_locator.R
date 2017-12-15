@@ -13,7 +13,8 @@
 #' @references https://developer.walmartlabs.com/docs/read/Store_Locator_API
 #'
 #' @examples
-#' store_locator("apikey", city = "NEW YORK")
+#' apikey = "xs9emg846j69q7e9fhbfxz6d"
+#' store_locator(apikey, city = "NEW YORK")
 #'
 #' @export
 #' @import jsonlite

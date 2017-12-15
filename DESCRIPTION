@@ -2,7 +2,9 @@ Package: walmartR
 Type: Package
 Title: Client for the Walmart Open API
 Version: 0.1.0
-Author: Elka Mao 
+Author: Elka Mao
+Authors@R: person("Elka", "Mao", email = "jm4432@columbia.edu",
+  role = c("aut", "cre")) 
 Maintainer: Elka Mao <jm4432@columbia.edu>
 Description: This package is an API client for multiple functions provided by Walmart Open API to look up item, search for product, locate stores etc. To learn more about the Walmart Open API, see <https://developer.walmartlabs.com>  
 License: MIT + file LICENSE

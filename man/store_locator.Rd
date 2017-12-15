@@ -24,7 +24,8 @@ Returns an RDS file named "store_locations_output.RDS".
 This function helps locate nearest Walmart Stores via API. It lets users search for stores by latitude and longitude, by zip code and by city.
 }
 \examples{
-store_locator("apikey", city = "NEW YORK")
+apikey = "xs9emg846j69q7e9fhbfxz6d"
+store_locator(apikey, city = "NEW YORK")
 
 }
 \references{

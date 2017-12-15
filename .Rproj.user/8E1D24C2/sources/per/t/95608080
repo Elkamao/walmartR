@@ -5,14 +5,14 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "784990020",
+    "hash" : "1910328823",
     "id" : "95608080",
-    "lastKnownWriteTime" : 1513215066,
-    "last_content_update" : 1513215066916,
+    "lastKnownWriteTime" : 1513379467,
+    "last_content_update" : 1513379467714,
     "path" : "~/Desktop/MD/walmartR/R/product_lookup.R",
     "project_path" : "R/product_lookup.R",
     "properties" : {
-        "cursorPosition" : "13,31",
+        "cursorPosition" : "17,15",
         "scrollLine" : "0"
     },
     "relative_order" : 5,

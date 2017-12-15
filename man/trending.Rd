@@ -16,7 +16,8 @@ Returns an RDS file named "tredning_output.RDS".
 This function is designed to give the information on what is bestselling on Walmart.com right now.
 }
 \examples{
-trending("xs9emg846j69q7e9fhbfxz6d")
+apikey = "xs9emg846j69q7e9fhbfxz6d"
+trending(apikey)
 
 }
 \references{

@@ -10,8 +10,8 @@
 #' @references https://developer.walmartlabs.com/docs/read/Home
 #'
 #' @examples
-#' product_lookup("xs9emg846j69q7e9fhbfxz6d", "12417832")
-#' product_lookup("xs9emg846j69q7e9fhbfxz6d", "12417832,19336123")
+#' product_lookup("apikey", "12417832")
+#' product_lookup("apikey", "12417832,19336123")
 #'
 #' @export
 #' @import jsonlite

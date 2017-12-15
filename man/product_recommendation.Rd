@@ -18,7 +18,8 @@ Returns an RDS file named "product_recommendation_output.RDS".
 This prouct recommendation function is an extension driven by the science that powers the recommended products container on Walmart.com and provides the top 10 recommended products for a certain item.
 }
 \examples{
-product_recommendation("xs9emg846j69q7e9fhbfxz6d", "36904791")
+apikey = "xs9emg846j69q7e9fhbfxz6d"
+product_recommendation(apikey, "36904791")
 
 }
 \references{

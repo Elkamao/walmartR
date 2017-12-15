@@ -5,14 +5,14 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2728290396",
+    "hash" : "828599957",
     "id" : "B5BAC3ED",
-    "lastKnownWriteTime" : 1513215081,
-    "last_content_update" : 1513215081957,
+    "lastKnownWriteTime" : 1513379516,
+    "last_content_update" : 1513379516921,
     "path" : "~/Desktop/MD/walmartR/R/trending.R",
     "project_path" : "R/trending.R",
     "properties" : {
-        "cursorPosition" : "15,15",
+        "cursorPosition" : "11,19",
         "scrollLine" : "0"
     },
     "relative_order" : 9,

@@ -8,7 +8,7 @@
 #' @param start Starting point of the results within the matching set of items - upto 10 items will be returned starting from this item (Optional)
 #' @param sort Sorting criteria, allowed sort types are [relevance, price, title, bestseller, customerRating, new]. Default sort is by relevance (Optional)
 #' @param order Sort ordering criteria, allowed values are [asc, desc]. This parameter is needed only for the sort types [price, title, customerRating].(Optional)
-#'  @param numItems Number of matching items to be returned, max value 25. Default is 10 (Optional)
+#' @param numItems Number of matching items to be returned, max value 25. Default is 10 (Optional)
 #' @param facet Boolean flag to enable facets. Default value is off. Set this to on to enable facets  (Optional)
 #' @param facet_filter Filter on the facet attribute values. This parameter can be set to <facet-name>:<facet-value> (without the angles). Here facet-name and facet-value can be any valid facet picked from the search API response when facets are on (Optional)
 #' @param facet_range Range filter for facets which take range values, like price. See usage above in the examples (Optional)
@@ -18,7 +18,7 @@
 #' @references https://developer.walmartlabs.com/docs/read/Search_API
 #'
 #' @examples
-#' item_search("xs9emg846j69q7e9fhbfxz6d", query = "tv", facet = "on", facet_filter = "brand:Samsung")
+#' item_search("apikey", query = "tv", facet = "on", facet_filter = "brand:Samsung")
 #'
 #' @export
 #' @import jsonlite

@@ -10,7 +10,7 @@
 #' @references https://developer.walmartlabs.com/docs/read/Product_Recommendation_API
 #'
 #' @examples
-#' product_recommendation("xs9emg846j69q7e9fhbfxz6d", "36904791")
+#' product_recommendation("apikey", "36904791")
 #'
 #' @export
 #' @import jsonlite

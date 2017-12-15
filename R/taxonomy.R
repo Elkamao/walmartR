@@ -9,7 +9,8 @@
 #' @references https://developer.walmartlabs.com/docs/read/Taxonomy_API
 #'
 #' @examples
-#' taxonomy("xs9emg846j69q7e9fhbfxz6d")
+#' apikey = "xs9emg846j69q7e9fhbfxz6d"
+#' taxonomy(apikey)
 #'
 #' @export
 #' @import jsonlite

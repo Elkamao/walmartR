@@ -18,7 +18,8 @@ Returns an RDS file named "postbrowse_recommendation_output.RDS".
 This function allows you to recommend products to someone based on their product viewing history and returns top 10 post browsed products for an item.
 }
 \examples{
-postbrowse_recommendation("apikey", "36904791")
+apikey = "xs9emg846j69q7e9fhbfxz6d"
+postbrowse_recommendation(apikey, "36904791")
 
 }
 \references{

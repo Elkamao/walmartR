@@ -36,7 +36,8 @@ Returns an RDS file named "item_search_output.RDS".
 This function allows text search on the Walmart.com catalogue and returns matching items available for sale online.
 }
 \examples{
-item_search("apikey", query = "tv", facet = "on", facet_filter = "brand:Samsung")
+apikey = "xs9emg846j69q7e9fhbfxz6d"
+item_search(apikey, query = "tv", facet = "on", facet_filter = "brand:Samsung")
 
 }
 \references{
