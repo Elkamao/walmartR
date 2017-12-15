@@ -1,7 +1,13 @@
 walmartR: Access Walmart.com via R
 ==================================
 
-### Install, load the package
+Overview
+--------
+
+WalmartR is an API Client for interating and getting data from the Walmart Open API. Functions including search for product with item id or keywords, price range etcs. You can also get list of best selling product on Walmart.com as well as locate sctore with city name or zip code.
+
+Install, load the package
+-------------------------
 
 To install the latest version from Github
 
@@ -10,8 +16,18 @@ To install the latest version from Github
 devtools::install_github("Elkamao/walmartR")
 ```
 
-    ## Skipping install of 'walmartR' from a github remote, the SHA1 (3ac596c7) has not changed since last install.
-    ##   Use `force = TRUE` to force installation
+    ## Downloading GitHub repo Elkamao/walmartR@master
+    ## from URL https://api.github.com/repos/Elkamao/walmartR/zipball/master
+
+    ## Installing walmartR
+
+    ## '/Library/Frameworks/R.framework/Resources/bin/R' --no-site-file  \
+    ##   --no-environ --no-save --no-restore --quiet CMD INSTALL  \
+    ##   '/private/var/folders/2j/xz64c57x3331mn2dwfsvgp740000gn/T/RtmpIkQ9zw/devtools3daf256e1b43/Elkamao-walmartR-07a4a86'  \
+    ##   --library='/Library/Frameworks/R.framework/Versions/3.4/Resources/library'  \
+    ##   --install-tests
+
+    ## 
 
 Next, load the package:
 
@@ -19,7 +35,8 @@ Next, load the package:
 library(walmartR)
 ```
 
-### Using the package
+Using the package
+-----------------
 
 To start, register an developer account on Walmart Open API (see <https://developer.walmartlabs.com/member>) and obtain an API key.
 
@@ -27,7 +44,7 @@ To start, register an developer account on Walmart Open API (see <https://develo
 wal_key = [Your API key]
 ```
 
-#### Product Lookup
+### Product Lookup
 
 You can look up one item at a time.
 
@@ -41,7 +58,7 @@ Or you can look up a list of items at the same time.
 product_lookup(wal_key, "12417832,19336123")
 ```
 
-#### Item Search
+### Item Search
 
 Search for Ipod
 
@@ -67,13 +84,13 @@ You can use the facet name and any of the facet values to further narrow down th
 item_search(wal_key, query = "tv", facet = "on", facet_filter = "brand:Samsung")
 ```
 
-#### Taxonomy
+### Taxonomy
 
 ``` r
 taxonomy(wal_key)
 ```
 
-#### Product Recommendation
+### Product Recommendation
 
 Each item on Walmart.com has a particular item ID associated with it. This can be generally seen in the last 8 digits of a URL string, but can also be acquired by using the product\_lookup function (Required)
 
@@ -81,7 +98,7 @@ Each item on Walmart.com has a particular item ID associated with it. This can b
 product_recommendation(wal_key, "36904791")
 ```
 
-#### Post Browsed Products Recommendation
+### Post Browsed Products Recommendation
 
 Same item Id as used in the prouct recommendation fucntion.
 
@@ -89,7 +106,7 @@ Same item Id as used in the prouct recommendation fucntion.
 postbrowse_recommendation(wal_key, "36904791")
 ```
 
-#### Store Locator
+### Store Locator
 
 Nearest walmart stores for latitude 29.735577 and longitude -95.511747
 
@@ -109,7 +126,7 @@ Walmart stores in the zip 10025
 store_locator(wal_key, zip = "10025")
 ```
 
-#### Trending
+### Trending
 
 ``` r
 trending(wal_key)
