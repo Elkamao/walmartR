@@ -4,7 +4,7 @@
 \alias{product_lookup}
 \title{Lookup product information on Walmart}
 \usage{
-product_lookup(apikey, ids)
+product_lookup(apikey = NULL, ids)
 }
 \arguments{
 \item{apikey}{Your API access key authorized by Walmart API (Required)}
@@ -18,7 +18,7 @@ Returns an RDS file named "product_lookup_output.RDS".
 This function gives access to item price and availability in real-time. Item id needs to be specified for doing a lookup.
 }
 \examples{
-apikey = "xs9emg846j69q7e9fhbfxz6d"
+apikey = "YOUR API KEY"
 product_lookup(apikey, "12417832")
 product_lookup(apikey, "12417832,19336123")
 

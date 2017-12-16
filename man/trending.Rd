@@ -4,7 +4,7 @@
 \alias{trending}
 \title{Selling Trend}
 \usage{
-trending(apikey)
+trending(apikey = NULL)
 }
 \arguments{
 \item{apikey}{Your API access key authorized by Walmart API (Required)}
@@ -16,7 +16,7 @@ Returns an RDS file named "tredning_output.RDS".
 This function is designed to give the information on what is bestselling on Walmart.com right now.
 }
 \examples{
-apikey = "xs9emg846j69q7e9fhbfxz6d"
+apikey = "YOUR API KEY"
 trending(apikey)
 
 }

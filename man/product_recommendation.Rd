@@ -4,7 +4,7 @@
 \alias{product_recommendation}
 \title{Product Recommendation}
 \usage{
-product_recommendation(apikey, itemId)
+product_recommendation(apikey = NULL, itemId)
 }
 \arguments{
 \item{apikey}{Your API access key authorized by Walmart API (Required)}
@@ -18,7 +18,7 @@ Returns an RDS file named "product_recommendation_output.RDS".
 This prouct recommendation function is an extension driven by the science that powers the recommended products container on Walmart.com and provides the top 10 recommended products for a certain item.
 }
 \examples{
-apikey = "xs9emg846j69q7e9fhbfxz6d"
+apikey = "YOUR API KEY"
 product_recommendation(apikey, "36904791")
 
 }

@@ -10,37 +10,28 @@
 #' @references https://developer.walmartlabs.com/docs/read/Post_Browsed_Products_API
 #'
 #' @examples
-#' apikey = "xs9emg846j69q7e9fhbfxz6d"
+#' apikey = "YOUR API KEY"
 #' postbrowse_recommendation(apikey, "36904791")
 #'
 #' @export
 #' @import jsonlite
 #' @import httr
 
-postbrowse_recommendation <- function(apikey, itemId){
+postbrowse_recommendation <- function(apikey = NULL, itemId){
 
   querys <-  list(apiKey = apikey,
                   itemId = itemId)
   resps <- GET(url = "http://api.walmartlabs.com/v1/postbrowse",
                query = querys)
-  if (http_type(resps) != "application/json") {
-    stop("API did not return json", call. = FALSE)
+
+  if (status_code(resps) == 200) {
+    parsed <- jsonlite::fromJSON(content(resps, "text"))
+    df <- data.frame(parsed)
+    saveRDS(df, file = "store_locations_output.RDS")
+  }
+  else{
+    warning("Walmart Open API request failed")
   }
 
-  parsed <- jsonlite::fromJSON(content(resps, "text"))
 
-
-  if (status_code(resps) != 200) {
-    stop(
-      sprintf(
-        "Walmart Open API request failed",
-        status_code(resps),
-        parsed$status
-      ),
-      call. = FALSE
-    )
-  }
-
-  df <- data.frame(parsed)
-  saveRDS(df, file = "post_browsed_recommendation_output.RDS")
 }

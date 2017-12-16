@@ -4,7 +4,7 @@
 \alias{taxonomy}
 \title{Walmart.com Category Taxonomy}
 \usage{
-taxonomy(apikey)
+taxonomy(apikey = NULL)
 }
 \arguments{
 \item{apikey}{Your API access key authorized by Walmart API (Required)}
@@ -16,8 +16,8 @@ Returns an RDS file named "taxonomy_output.RDS".
 This function exposes the category taxonomy used by walmart.com to categorize items.
 }
 \examples{
-apikey = "xs9emg846j69q7e9fhbfxz6d"
-taxonomy(apikey)
+apikey = "YOUR API KEY"
+taxonomy(apikey = "YOUR API KEY")
 
 }
 \references{

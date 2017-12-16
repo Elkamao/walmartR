@@ -10,37 +10,26 @@
 #' @references https://developer.walmartlabs.com/docs/read/Product_Recommendation_API
 #'
 #' @examples
-#' apikey = "xs9emg846j69q7e9fhbfxz6d"
+#' apikey = "YOUR API KEY"
 #' product_recommendation(apikey, "36904791")
 #'
 #' @export
 #' @import jsonlite
 #' @import httr
 
-product_recommendation <- function(apikey, itemId){
+product_recommendation <- function(apikey = NULL, itemId){
 
   querys <-  list(apiKey = apikey,
                   itemId = itemId)
   resps <- GET(url = "http://api.walmartlabs.com/v1/nbp",
                query = querys)
-  if (http_type(resps) != "application/json") {
-    stop("API did not return json", call. = FALSE)
+
+  if (status_code(resps) == 200) {
+    parsed <- jsonlite::fromJSON(content(resps, "text"))
+    df <- data.frame(parsed)
+    saveRDS(df, file = "store_locations_output.RDS")
   }
-
-  parsed <- jsonlite::fromJSON(content(resps, "text"))
-
-
-  if (status_code(resps) != 200) {
-    stop(
-      sprintf(
-        "Walmart Open API request failed",
-        status_code(resps),
-        parsed$status
-      ),
-      call. = FALSE
-    )
+  else{
+    warning("Walmart Open API request failed")
   }
-
-  df <- data.frame(parsed)
-  saveRDS(df, file = "product_recommendation_output.RDS")
 }

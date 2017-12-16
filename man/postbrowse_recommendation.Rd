@@ -4,7 +4,7 @@
 \alias{postbrowse_recommendation}
 \title{Post Browsed Products Recommendation}
 \usage{
-postbrowse_recommendation(apikey, itemId)
+postbrowse_recommendation(apikey = NULL, itemId)
 }
 \arguments{
 \item{apikey}{Your API access key authorized by Walmart API (Required)}
@@ -18,7 +18,7 @@ Returns an RDS file named "postbrowse_recommendation_output.RDS".
 This function allows you to recommend products to someone based on their product viewing history and returns top 10 post browsed products for an item.
 }
 \examples{
-apikey = "xs9emg846j69q7e9fhbfxz6d"
+apikey = "YOUR API KEY"
 postbrowse_recommendation(apikey, "36904791")
 
 }

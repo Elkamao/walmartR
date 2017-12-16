@@ -18,14 +18,14 @@
 #' @references https://developer.walmartlabs.com/docs/read/Search_API
 #'
 #' @examples
-#' apikey = "xs9emg846j69q7e9fhbfxz6d"
+#' apikey = "YOUR API KEY"
 #' item_search(apikey, query = "tv", facet = "on", facet_filter = "brand:Samsung")
 #'
 #' @export
 #' @import jsonlite
 #' @import httr
 #'
-item_search <- function(apikey, query, categoryID = NULL, start = NULL, sort = NULL, order = NULL,
+item_search <- function(apikey = NULL, query, categoryID = NULL, start = NULL, sort = NULL, order = NULL,
                         numItems = 10, facet = NULL, facet_filter = NULL,
                         facet_range = NULL){
 
@@ -41,24 +41,13 @@ item_search <- function(apikey, query, categoryID = NULL, start = NULL, sort = N
                   facet.range = facet_range)
   resps <- GET(url = "http://api.walmartlabs.com/v1/search",
                query = querys)
-  if (http_type(resps) != "application/json") {
-    stop("API did not return json", call. = FALSE)
+
+  if (status_code(resps) == 200) {
+    parsed <- jsonlite::fromJSON(content(resps, "text"))
+    df <- data.frame(parsed$item)
+    saveRDS(df, file = "store_locations_output.RDS")
   }
-
-  parsed <- jsonlite::fromJSON(content(resps, "text"))
-
-
-  if (status_code(resps) != 200) {
-    stop(
-      sprintf(
-        "Walmart Open API request failed",
-        status_code(resps),
-        parsed$status
-      ),
-      call. = FALSE
-    )
+  else{
+    warning("Walmart Open API request failed")
   }
-
-  df <- data.frame(parsed$item)
-  saveRDS(df, file = "item_search_output.RDS")
 }

@@ -4,9 +4,9 @@
 \alias{item_search}
 \title{Search for Product on Walmart.com}
 \usage{
-item_search(apikey, query, categoryID = NULL, start = NULL, sort = NULL,
-  order = NULL, numItems = 10, facet = NULL, facet_filter = NULL,
-  facet_range = NULL)
+item_search(apikey = NULL, query, categoryID = NULL, start = NULL,
+  sort = NULL, order = NULL, numItems = 10, facet = NULL,
+  facet_filter = NULL, facet_range = NULL)
 }
 \arguments{
 \item{apikey}{Your API access key authorized by Walmart API (Required)}
@@ -36,7 +36,7 @@ Returns an RDS file named "item_search_output.RDS".
 This function allows text search on the Walmart.com catalogue and returns matching items available for sale online.
 }
 \examples{
-apikey = "xs9emg846j69q7e9fhbfxz6d"
+apikey = "YOUR API KEY"
 item_search(apikey, query = "tv", facet = "on", facet_filter = "brand:Samsung")
 
 }

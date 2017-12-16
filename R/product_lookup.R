@@ -10,7 +10,7 @@
 #' @references https://developer.walmartlabs.com/docs/read/Home
 #'
 #' @examples
-#' apikey = "xs9emg846j69q7e9fhbfxz6d"
+#' apikey = "YOUR API KEY"
 #' product_lookup(apikey, "12417832")
 #' product_lookup(apikey, "12417832,19336123")
 #'
@@ -20,30 +20,20 @@
 
 
 #Product Lookup
-product_lookup <- function(apikey, ids){
+product_lookup <- function(apikey = NULL, ids){
 
   querys <-  list(ids = ids,
                   apiKey = apikey)
   resps <- GET(url = "http://api.walmartlabs.com/v1/items",
                query = querys)
-  if (http_type(resps) != "application/json") {
-    stop("API did not return json", call. = FALSE)
+
+  if (status_code(resps) == 200) {
+    parsed <- jsonlite::fromJSON(content(resps, "text"))
+    df <- data.frame(parsed)
+    saveRDS(df, file = "store_locations_output.RDS")
+  }
+  else{
+    warning("Walmart Open API request failed")
   }
 
-  parsed <- jsonlite::fromJSON(content(resps, "text"))
-
-
-  if (status_code(resps) != 200) {
-    stop(
-      sprintf(
-        "Walmart Open API request failed",
-        status_code(resps),
-        parsed$status
-      ),
-      call. = FALSE
-    )
-  }
-
-  df <- data.frame(parsed)
-  saveRDS(df, file = "product_lookup_output.RDS")
 }

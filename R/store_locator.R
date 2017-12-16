@@ -13,14 +13,14 @@
 #' @references https://developer.walmartlabs.com/docs/read/Store_Locator_API
 #'
 #' @examples
-#' apikey = "xs9emg846j69q7e9fhbfxz6d"
+#' apikey = "YOUR API KEY"
 #' store_locator(apikey, city = "NEW YORK")
 #'
 #' @export
 #' @import jsonlite
 #' @import httr
 
-store_locator <- function(apikey, city = NULL, lat = NULL, lon = NULL, zip = NULL){
+store_locator <- function(apikey = NULL, city = NULL, lat = NULL, lon = NULL, zip = NULL){
 
   querys <-  list(apiKey = apikey,
                   city = city,
@@ -29,25 +29,15 @@ store_locator <- function(apikey, city = NULL, lat = NULL, lon = NULL, zip = NUL
                   zip = zip)
   resps <- GET(url = "http://api.walmartlabs.com/v1/stores",
                query = querys)
-  if (http_type(resps) != "application/json") {
-    stop("API did not return json", call. = FALSE)
+
+  if (status_code(resps) == 200) {
+    parsed <- jsonlite::fromJSON(content(resps, "text"))
+    df <- data.frame(parsed)
+    saveRDS(df, file = "store_locations_output.RDS")
+  }
+  else{
+    warning("Walmart Open API request failed")
   }
 
-  parsed <- jsonlite::fromJSON(content(resps, "text"))
-
-
-  if (status_code(resps) != 200) {
-    stop(
-      sprintf(
-        "Walmart Open API request failed",
-        status_code(resps),
-        parsed$status
-      ),
-      call. = FALSE
-    )
-  }
-
-  df <- data.frame(parsed)
-  saveRDS(df, file = "store_locations_output.RDS")
 }
 

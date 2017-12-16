@@ -4,7 +4,8 @@
 \alias{store_locator}
 \title{Store Locator}
 \usage{
-store_locator(apikey, city = NULL, lat = NULL, lon = NULL, zip = NULL)
+store_locator(apikey = NULL, city = NULL, lat = NULL, lon = NULL,
+  zip = NULL)
 }
 \arguments{
 \item{apikey}{Your API access key authorized by Walmart API (Required)}
@@ -24,7 +25,7 @@ Returns an RDS file named "store_locations_output.RDS".
 This function helps locate nearest Walmart Stores via API. It lets users search for stores by latitude and longitude, by zip code and by city.
 }
 \examples{
-apikey = "xs9emg846j69q7e9fhbfxz6d"
+apikey = "YOUR API KEY"
 store_locator(apikey, city = "NEW YORK")
 
 }
